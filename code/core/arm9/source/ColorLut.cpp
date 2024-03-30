@@ -6,7 +6,7 @@
 // based on https://gist.github.com/profi200/bfa7be60b3eecb8c43f59000f626c743
 
 #define TARGET_GAMMA  (2.f)
-#define DISPLAY_GAMMA (2.f)
+#define DISPLAY_GAMMA (1.45f)
 #define DARKEN_SCREEN (0.5f)
 #define LUMINANCE     (0.93f) // 0.99f for mGBA.
 
@@ -66,9 +66,15 @@ static constexpr u16 calculateColor(const u16 i)
     // 0.800, 0.275, -0.075,
     // 0.135, 0.640,  0.225,
     // 0.195, 0.155,  0.650
-    double newR = 0.8 * r + 0.275 * g + -0.075 * b;
-    double newG = 0.135 * r + 0.64 * g + 0.225 * b;
-    double newB = 0.195 * r + 0.155 * g + 0.65 * b;
+    // double newR = 0.8 * r + 0.275 * g + -0.075 * b;
+    // double newG = 0.135 * r + 0.64 * g + 0.225 * b;
+    // double newB = 0.195 * r + 0.155 * g + 0.65 * b;
+	
+	// DS phat white
+	double newR = 0.815 * r + 0.275 * g + -0.09 * b;
+	double newG = 0.1 * r + 0.64 * g +  0.26 * b;
+	double newB = 0.1075 * r + 0.1725 * g +  0.72 * b;
+	
     // Assuming no alpha channel in original calculation.
 #else
     // mGBA.
