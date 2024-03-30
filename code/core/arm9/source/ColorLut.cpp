@@ -6,7 +6,7 @@
 // based on https://gist.github.com/profi200/bfa7be60b3eecb8c43f59000f626c743
 
 #define TARGET_GAMMA  (2.f)
-#define DISPLAY_GAMMA (1.45f)
+#define DISPLAY_GAMMA (1.5f)
 #define DARKEN_SCREEN (0.5f)
 #define LUMINANCE     (0.93f) // 0.99f for mGBA.
 
