@@ -204,7 +204,7 @@ SECTIONS
 		KEEP (vectors.o(.itcm))
 		. = 0x20;
 		KEEP (VMUndefined.o(.itcm))
-		. = 0xB8;
+		. = 0xDC;
 		KEEP (VMIrq.o(.itcm))
 		. = 0x390;
 		KEEP (MemoryLoadRom.o(.itcm))
@@ -268,8 +268,10 @@ SECTIONS
 		__bss_start__ = ABSOLUTE(.);
 		*(.dynbss)
 		*(.gnu.linkonce.b*)
-		*(.bss*)
+		*(EXCLUDE_FILE(HiCodeCacheMapping.o) .bss*)
 		*(COMMON)
+		. = ALIGN(2048);
+		KEEP (HiCodeCacheMapping.o(.bss))
 		. = ALIGN(4);    /* REQUIRED. LD is flaky without it. */
 	} >vrama :NONE
 
